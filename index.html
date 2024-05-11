@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bat Ball Wicket</title>
+  <link rel="stylesheet" href="CSS/style.css">
+</head>
+<body>
+  <div class="button-container">
+    <button type="submit" onclick="user = 'bat'; won();"><img src="/image/bat.jpg" alt="bat"></button>
+    <button type="submit" onclick="user = 'ball'; won();"><img src="/image/ball.jpg" alt="ball"></button>
+    <button type="submit" onclick="user = 'wicket'; won();"><img src="/image/wicket.jpg" alt="wicket"></button>
+  </div>
+
+  <hr>
+  
+  <h1 id="result"></h1>
+  <p id="score"></p>
+  <button onclick="userScore = 0, comScore = 0; document.querySelector('#result').innerText = ``;
+  document.querySelector('#score').innerText = ``; console.clear();">Reset</button>
+
+    <script>
+      let computer_choice;
+      let user;
+
+      function compChoice(){
+        computer_choice = Math.floor(Math.random() * 3);
+
+        if (computer_choice === 0) {
+          computer_choice = 'wicket';  
+        }
+        else if (computer_choice === 1) {
+          computer_choice = 'bat';
+        } else if (computer_choice === 2 ) {
+          computer_choice = 'ball';
+        }
+      }
+
+      var comScore = 0, userScore = 0;
+
+      function won(){
+        compChoice();
+        if (user === 'bat') {
+          if (computer_choice === 'ball'){
+            userScore++;
+            document.querySelector('#result').innerText = "You WON this game...";
+            document.querySelector('#score').innerText = `User : ${userScore}\t\tComputer : ${comScore}`;
+            console.log(user);
+            console.log(computer_choice);
+          }
+          else if(computer_choice === 'wicket'){
+            comScore++;
+            document.querySelector('#result').innerText = "Computer WON this game...";
+            document.querySelector('#score').innerText = `User : ${userScore}\t\tComputer : ${comScore}`;
+            console.log(user);
+            console.log(computer_choice);
+          }
+          else{
+            document.querySelector('#result').innerText = "IT's a Tie...";
+            document.querySelector('#score').innerText = `User : ${userScore}\t\tComputer : ${comScore}`;
+            console.log(user);
+            console.log(computer_choice);
+          }
+      }
+      
+      if (user === 'ball') {
+        if (computer_choice === 'wicket'){
+          userScore++;
+          document.querySelector('#result').innerText = "You WON this game...";
+          document.querySelector('#score').innerText = `User : ${userScore}\t\tComputer : ${comScore}`;
+
+          console.log(user);
+            console.log(computer_choice);
+          }
+          else if(computer_choice === 'bat'){
+            comScore++;
+            document.querySelector('#result').innerText = "Computer WON this game...";
+            document.querySelector('#score').innerText = `User : ${userScore}\t\tComputer : ${comScore}`;
+
+            console.log(user);
+            console.log(computer_choice);
+          }
+          else{
+            
+            document.querySelector('#result').innerText = "It's a Tie...";
+            document.querySelector('#score').innerText = `User : ${userScore}\t\tComputer : ${comScore}`;
+            
+            console.log(user);
+            console.log(computer_choice);
+          }
+        }
+        if (user === 'wicket') {
+          if (computer_choice === 'bat'){
+            userScore++;
+            document.querySelector('#result').innerText = "You WON this game...";
+            document.querySelector('#score').innerText = `User : ${userScore}\t\tComputer : ${comScore}`;
+
+            console.log(user);
+            console.log(computer_choice);
+          }
+          else if(computer_choice === 'ball'){
+            comScore++;
+            document.querySelector('#result').innerText = "Computer WON this game...";
+            document.querySelector('#score').innerText = `User : ${userScore}\t\tComputer : ${comScore}`;
+
+            console.log(user);
+            console.log(computer_choice);
+          }
+          else{
+            
+            document.querySelector('#result').innerText = "It's a Tie...";
+            document.querySelector('#score').innerText = `User : ${userScore}\t\tComputer : ${comScore}`;
+            
+            console.log(user);
+            console.log(computer_choice);
+          }
+        }
+      }
+    </script>
+</body>
+</html>
